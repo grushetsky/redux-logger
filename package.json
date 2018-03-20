@@ -8,15 +8,15 @@
   "scripts": {
     "lint": "tslint -p ./",
     "test": "jest --config jest/config.json",
-    "test:coverage": "npm test -- --coverage",
+    "test:coverage": "yarn test -- --coverage",
     "test:coverage:show": "http-server -o -p 1335 .coverage/lcov-report",
-    "test:production": "npm test:coverage -- --ci",
-    "test:watch": "npm test -- --watch",
+    "test:production": "yarn test:coverage -- --ci",
+    "test:watch": "yarn test -- --watch",
     "clean": "rimraf dist",
     "uglify": "uglifyjs dist/redux-logger.js -cm -o dist/redux-logger.js",
-    "build": "rollup -c && npm run uglify",
-    "precommit": "npm run lint && npm run test",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "build": "rollup -c && yarn uglify",
+    "precommit": "yarn lint && yarn test",
+    "prepublish": "yarn clean && yarn lint && yarn test && yarn build"
   },
   "files": [
     "dist",
@@ -39,27 +39,27 @@
   },
   "homepage": "https://github.com/theaqua/redux-logger#readme",
   "devDependencies": {
-    "@types/jest": "^22.2.0",
-    "babel-core": "^6.24.0",
-    "babel-plugin-external-helpers": "^6.22.0",
+    "@types/jest": "22.2.0",
+    "babel-core": "6.24.0",
+    "babel-plugin-external-helpers": "6.22.0",
     "babel-plugin-transform-inline-environment-variables": "6.8.0",
-    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2015": "6.24.0",
     "codecov": "1.0.1",
     "http-server": "0.9.0",
-    "husky": "^0.13.2",
-    "jest": "^22.4.2",
-    "redux": "^3.6.0",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "tslib": "^1.9.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.0-rc",
-    "uglify-js": "^3.0.8"
+    "husky": "0.13.2",
+    "jest": "22.4.2",
+    "redux": "3.6.0",
+    "rimraf": "2.6.1",
+    "rollup": "0.41.6",
+    "rollup-plugin-babel": "2.7.1",
+    "rollup-plugin-commonjs": "8.0.2",
+    "rollup-plugin-node-resolve": "3.0.0",
+    "tslib": "1.9.0",
+    "tslint": "5.9.1",
+    "typescript": "2.8.0-rc",
+    "uglify-js": "3.0.8"
   },
   "dependencies": {
-    "deep-diff": "^0.3.5"
+    "deep-diff": "0.3.5"
   }
 }
