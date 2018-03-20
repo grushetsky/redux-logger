@@ -5,9 +5,6 @@ node_modules
 npm-debug.log
 
 .coverage
-*.lcov
 
-example/build
 dist
 lib
-yarn.lock
