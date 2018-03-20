@@ -29,8 +29,8 @@ function defaultTitleFormatter(options) {
     const parts = ['action'];
 
     parts.push(`%c${String(action.type)}`);
-    if (timestamp) parts.push(`%c@ ${time}`);
-    if (duration) parts.push(`%c(in ${took.toFixed(2)} ms)`);
+    if (timestamp) { parts.push(`%c@ ${time}`); }
+    if (duration) { parts.push(`%c(in ${took.toFixed(2)} ms)`); }
 
     return parts.join(' ');
   };
@@ -69,8 +69,8 @@ function printBuffer(buffer, options) {
     const titleCSS = colors.title ? `color: ${colors.title(formattedAction)};` : '';
     const headerCSS = ['color: gray; font-weight: lighter;'];
     headerCSS.push(titleCSS);
-    if (options.timestamp) headerCSS.push('color: gray; font-weight: lighter;');
-    if (options.duration) headerCSS.push('color: gray; font-weight: lighter;');
+    if (options.timestamp) { headerCSS.push('color: gray; font-weight: lighter;'); }
+    if (options.duration) { headerCSS.push('color: gray; font-weight: lighter;'); }
     const title = titleFormatter(formattedAction, formattedTime, took);
 
     // Render
@@ -78,7 +78,7 @@ function printBuffer(buffer, options) {
       if (isCollapsed) {
         if (colors.title && isUsingDefaultFormatter) {
           logger.groupCollapsed(`%c ${title}`, ...headerCSS);
-        } else logger.groupCollapsed(title);
+        } else { logger.groupCollapsed(title); }
       } else if (colors.title && isUsingDefaultFormatter) {
         logger.group(`%c ${title}`, ...headerCSS);
       } else {
@@ -98,7 +98,7 @@ function printBuffer(buffer, options) {
         const styles = `color: ${colors.prevState(prevState)}; font-weight: bold`;
 
         logger[prevStateLevel]('%c prev state', styles, prevState);
-      } else logger[prevStateLevel]('prev state', prevState);
+      } else { logger[prevStateLevel]('prev state', prevState); }
     }
 
     if (actionLevel) {
@@ -106,7 +106,7 @@ function printBuffer(buffer, options) {
         const styles = `color: ${colors.action(formattedAction)}; font-weight: bold`;
 
         logger[actionLevel]('%c action    ', styles, formattedAction);
-      } else logger[actionLevel]('action    ', formattedAction);
+      } else { logger[actionLevel]('action    ', formattedAction); }
     }
 
     if (error && errorLevel) {
@@ -114,7 +114,7 @@ function printBuffer(buffer, options) {
         const styles = `color: ${colors.error(error, prevState)}; font-weight: bold;`;
 
         logger[errorLevel]('%c error     ', styles, error);
-      } else logger[errorLevel]('error     ', error);
+      } else { logger[errorLevel]('error     ', error); }
     }
 
     if (nextStateLevel) {
@@ -122,7 +122,7 @@ function printBuffer(buffer, options) {
         const styles = `color: ${colors.nextState(nextState)}; font-weight: bold`;
 
         logger[nextStateLevel]('%c next state', styles, nextState);
-      } else logger[nextStateLevel]('next state', nextState);
+      } else { logger[nextStateLevel]('next state', nextState); }
     }
 
     if (logger.withTrace) {

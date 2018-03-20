@@ -2,6 +2,14 @@ import differ from 'deep-diff';
 
 // https://github.com/flitbit/diff#differences
 const dictionary = {
+  A: {
+    color: '#2196F3',
+    text: 'ARRAY:',
+  },
+  D: {
+    color: '#F44336',
+    text: 'DELETED:',
+  },
   E: {
     color: '#2196F3',
     text: 'CHANGED:',
@@ -9,14 +17,6 @@ const dictionary = {
   N: {
     color: '#4CAF50',
     text: 'ADDED:',
-  },
-  D: {
-    color: '#F44336',
-    text: 'DELETED:',
-  },
-  A: {
-    color: '#2196F3',
-    text: 'ARRAY:',
   },
 };
 

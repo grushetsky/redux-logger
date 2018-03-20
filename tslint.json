@@ -1,0 +1,21 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "object-literal-sort-keys": false,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ]
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ]
+  }
+}

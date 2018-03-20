@@ -287,7 +287,6 @@ export default createLogger({
 ```
 
 ## To Do
-- [x] Update eslint config to [airbnb's](https://www.npmjs.com/package/eslint-config-airbnb)
 - [ ] Clean up code, because it's very messy, to be honest
 - [ ] Write tests
 - [ ] Node.js support

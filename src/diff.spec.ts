@@ -1,4 +1,4 @@
-import diffLogger, { style, render } from './diff';
+import diffLogger, { render, style } from './diff';
 
 describe('Diff', () => {
   describe('style', () => {
@@ -14,8 +14,8 @@ describe('Diff', () => {
     it('should return an array indicating the changes', () => {
       expect(render({
         kind: 'E',
-        path: ['capitain', 'name'],
         lhs: 'kirk',
+        path: ['capitain', 'name'],
         rhs: 'picard',
       })).toEqual(['capitain.name', 'kirk', '→', 'picard']);
     });
@@ -37,13 +37,13 @@ describe('Diff', () => {
 
     it('should return an array indicating a changed index', () => {
       expect(render({
-        kind: 'A',
-        path: ['crew'],
         index: 2,
         item: {
           kind: 'N',
           rhs: 'after',
         },
+        kind: 'A',
+        path: ['crew'],
       })).toEqual(['crew[2]', {
         kind: 'N',
         rhs: 'after',
@@ -60,10 +60,10 @@ describe('Diff', () => {
 
     beforeEach(() => {
       logger = {
-        log: jest.fn(),
+        group: jest.fn(),
         groupCollapsed: jest.fn(),
         groupEnd: jest.fn(),
-        group: jest.fn(),
+        log: jest.fn(),
       };
     });
 
@@ -88,10 +88,10 @@ describe('Diff', () => {
     it('should log no diff without group', () => {
       const loggerWithNoGroupCollapsed = Object.assign({}, logger, {
         groupCollapsed: () => {
-          throw new Error()
+          throw new Error();
         },
         groupEnd: () => {
-          throw new Error()
+          throw new Error();
         },
       });
 
@@ -105,7 +105,14 @@ describe('Diff', () => {
     it('should log the diffs', () => {
       diffLogger({ name: 'kirk' }, { name: 'picard' }, logger, false);
 
-      expect(logger.log).toHaveBeenCalledWith('%c CHANGED:', 'color: #2196F3; font-weight: bold', 'name', 'kirk', '→', 'picard');
+      expect(logger.log).toHaveBeenCalledWith(
+        '%c CHANGED:',
+        'color: #2196F3; font-weight: bold',
+        'name',
+        'kirk',
+        '→',
+        'picard',
+      );
     });
   });
 });

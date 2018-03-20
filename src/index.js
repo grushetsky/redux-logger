@@ -1,7 +1,7 @@
 import printBuffer from './core';
 import { timer } from './helpers';
 import defaults from './defaults';
-/* eslint max-len: ["error", 110, { "ignoreComments": true }] */
+
 /**
  * Creates logger with following options
  *
@@ -40,7 +40,7 @@ function createLogger(options = {}) {
 
   // Detect if 'createLogger' was passed directly to 'applyMiddleware'.
   if (options.getState && options.dispatch) {
-    // eslint-disable-next-line no-console
+    // tslint:disable-next-line:no-console
     console.error(`[redux-logger] redux-logger not installed. Make sure to pass logger instance as middleware:
 // Logger with default options
 import { logger } from 'redux-logger'
@@ -100,17 +100,16 @@ const store = createStore(
     printBuffer(logBuffer, Object.assign({}, loggerOptions, { diff }));
     logBuffer.length = 0;
 
-    if (logEntry.error) throw logEntry.error;
+    if (logEntry.error) { throw logEntry.error; }
     return returnedValue;
   };
 }
 
-// eslint-disable-next-line consistent-return
 const defaultLogger = ({ dispatch, getState } = {}) => {
   if (typeof dispatch === 'function' || typeof getState === 'function') {
     return createLogger()({ dispatch, getState });
   }
-  // eslint-disable-next-line no-console
+  // tslint:disable-next-line:no-console
   console.error(`
 [redux-logger v3] BREAKING CHANGE
 [redux-logger v3] Since 3.0.0 redux-logger exports by default logger with default settings.

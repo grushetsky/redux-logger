@@ -1,4 +1,4 @@
-import { repeat, pad, formatTime } from './helpers';
+import { formatTime, pad, repeat } from './helpers';
 
 describe('Helpers', () => {
   describe('repeat', () => {
